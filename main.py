@@ -1,6 +1,11 @@
+from hackernews import HackerNews
+
+
 def main() -> None:
-    print('Hej')
+    for article in HackerNews().articlces:
+        print(str(article))
+        print()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
