@@ -1,6 +1,7 @@
 import re
-from typing import List
 import requests
+
+from typing import List, Tuple
 from bs4 import BeautifulSoup, ResultSet
 
 
@@ -8,28 +9,28 @@ HACKER_NEWS_URL = "https://news.ycombinator.com/"
 
 
 class Article:
+    """represents an article from the hacker news"""
     def __init__(self, url: str, title: str) -> None:
         self.url = url
         self.title = title
 
+    def prepare_for_tweet(self) -> Tuple[str, int]:
+        string_representation = self.__str__()
+        return string_representation + "\n", len(string_representation) + 1
+
     def __str__(self) -> str:
-        return f'{self.title} ({self.url})'
-
-
-class HackerNews:
-    def __init__(self) -> None:
-        main_page = fetch_main_page()
-        self.articlces = parse_articles_page(page=main_page)
+        return f'{self.title} [{self.url}]'
 
 
 class HNRequestError(Exception):
-    """Raised when the status code is different than 200 (OK)"""
+    """raised when the status code is different than 200 (OK)"""
 
     def __init__(self) -> None:
         super().__init__("failed to connect with the hacker news")
 
 
 def fetch_main_page() -> bytes:
+    """fetches the main page, otherwise raises an error"""
     response = requests.get(HACKER_NEWS_URL)
     if response.status_code != requests.codes.ok:
         raise HNRequestError()
