@@ -7,8 +7,10 @@ An AWS Lambda function that scrapes the [Hacker News](https://news.ycombinator.c
 - [Workflow](#workflow)
 - [Launch](#launch)
 
-### Tech
+## Tech
 
-### Workflow 
+## Workflow 
+![workflow-image](/assets/workflow.png)
 
-### Launch
+
+## Launch
