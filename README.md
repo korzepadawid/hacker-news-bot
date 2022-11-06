@@ -1,6 +1,6 @@
 # hacker-news-bot 👩‍💻
 
-An AWS Lambda function that scrapes the [Hacker News](https://news.ycombinator.com/) and posts a tweet.
+An AWS Lambda function that publishes submissions from Hacker news on Twitter. Amazon EventBridge invokes the AWS Lambda function that scrapes Hacker News and publishes tweets then. The script replies to its previous tweets sequentially.
 
 ## Table of contents 📕
 - [Tech](#tech)
