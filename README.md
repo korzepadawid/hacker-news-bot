@@ -45,6 +45,11 @@ ACCESS_TOKEN=
 ACCESS_TOKEN_SECRET=
 ```
 
+```
+$ python main.py
+```
+
+
 You can get keys and tokens [here](https://developer.twitter.com/en/portal/dashboard).
 
 ## Deploy
